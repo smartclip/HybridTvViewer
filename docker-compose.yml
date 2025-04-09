@@ -1,0 +1,25 @@
+services:
+    hbbtv-browser-test:
+        container_name: hbbtv-browser-test
+        build:
+            context: .
+            dockerfile: docker/Dockerfile.test
+        volumes:
+            - ./build:/opt/project/build
+    hbbtv-browser-publish:
+        container_name: hbbtv-browser-publish
+        build:
+            context: .
+            dockerfile: docker/Dockerfile.publish
+            args:
+                CLIENT_ID: ${CLIENT_ID}
+                CLIENT_SECRET: ${CLIENT_SECRET}
+                REFRESH_TOKEN: ${REFRESH_TOKEN}
+                # Fixed ID for the HbbTV extension
+                # https://chromewebstore.google.com/detail/hybridtv-dev-environment/ljmkgjilkcmdokbgofbmjnkobejhhapc
+                APP_ID: ljmkgjilkcmdokbgofbmjnkobejhhapc
+        volumes:
+            - ./build:/opt/project/build
+        depends_on:
+            hbbtv-browser-test:
+                condition: service_completed_successfully

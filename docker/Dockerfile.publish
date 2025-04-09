@@ -1,0 +1,19 @@
+FROM node:slim
+
+RUN apt-get update && apt-get install zip curl jq -y
+
+# Take in publish arguments used by publish.sh
+ARG CLIENT_ID
+ENV CLIENT_ID=${CLIENT_ID}
+ARG CLIENT_SECRET
+ENV CLIENT_SECRET=${CLIENT_SECRET}
+ARG REFRESH_TOKEN
+ENV REFRESH_TOKEN=${REFRESH_TOKEN}
+ARG APP_ID
+ENV APP_ID=${APP_ID}
+
+# Add all source files needed for publishing
+ADD docker/publish.sh /opt/project/publish.sh
+
+WORKDIR /opt/project
+CMD ["bash", "-l", "-c", "./publish.sh"]

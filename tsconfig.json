@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "module": "CommonJS",
+        "target": "ES2017",
+        "lib": ["DOM", "DOM.Iterable"],
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "rootDir": ".",
+        "outDir": "build",
+        "noEmitOnError": true,
+        "resolveJsonModule": true,
+        "typeRoots": ["node_modules/@types","@types"]
+    }
+}

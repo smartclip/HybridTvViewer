@@ -1,0 +1,19 @@
+FROM node:latest
+
+# Add all source files needed for building and testing.
+ADD @types /opt/project/@types
+ADD public /opt/project/public
+ADD src /opt/project/src
+ADD test /opt/project/test
+ADD webpack /opt/project/webpack
+ADD tsconfig.json /opt/project/tsconfig.json
+ADD package.json /opt/project/package.json
+ADD package-lock.json /opt/project/package-lock.json
+ADD playwright.config.ts /opt/project/playwright.config.ts
+ADD .git /opt/project/.git
+
+WORKDIR /opt/project
+RUN npm install
+RUN npx -y playwright install --with-deps chromium
+
+CMD ["bash", "-l", "-c", "./test/stress-test.sh 10"]

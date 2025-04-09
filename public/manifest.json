@@ -1,0 +1,49 @@
+{
+    "manifest_version": 3,
+    "name": "HybridTV Dev Environment",
+    "description": "Polyfill to add basic HbbTV functionality to a browser.",
+    "version": "1.0.1",
+    "action": {
+        "default_icon": {
+            "128": "icons/TV_inactive_128.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "icons/TV_inactive_128.png"
+    },
+    "permissions": [
+        "scripting",
+        "webRequest",
+        "webNavigation",
+        "declarativeNetRequestWithHostAccess"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "hbbtv_polyfill.js",
+                "plugin_extensions.js",
+                "in_page_extensions.js",
+                "popup.js",
+                "fonts/TiresiasPCfont.ttf"
+            ],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    }
+}

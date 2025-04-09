@@ -1,24 +1,35 @@
 {
   "name": "hybridtv-dev-environment",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Polyfill to add basic HbbTV functionality to a browser.",
+  "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --config webpack.config.js"
+    "build": "webpack --mode production --config webpack/webpack.config.js",
+    "dev": "webpack --mode development --watch --config webpack/webpack.config.js",
+    "test": "playwright test"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
-    "file-loader": "4.2.0",
-    "html-loader": "0.5.5",
-    "html-webpack-plugin": "3.2.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.2.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6"
+    "@playwright/test": "^1.51.1",
+    "@types/chrome": "^0.0.313",
+    "@types/node": "^22.14.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "git-revision-webpack-plugin": "^5.0.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "sass": "^1.86.3",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.2",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "dashjs": "^3.0.0"
+    "typed-assert": "^1.0.9"
   }
 }

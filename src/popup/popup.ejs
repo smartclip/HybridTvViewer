@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title><%= htmlWebpackPlugin.options.APP_NAME %></title>
+</head>
+
+<body id="popup-body">
+  <div class="main-container">
+    <div class="app-title">
+      <%= htmlWebpackPlugin.options.APP_NAME %>
+    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td>Force:</td>
+          <td><label class="switch">
+            <input id="popup-checkbox-force-plugin" type="checkbox">
+            <span class="slider round"></span>
+          </label></td>
+        </tr>
+        <tr>
+          <td>version:</td>
+          <td><%= htmlWebpackPlugin.options.APP_VERSION %></td>
+        </tr>
+        <tr>
+          <td>Release Date:</td>
+          <td><%= htmlWebpackPlugin.options.GIT_LASTCOMMITDATETIME %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+</body>
+</html>

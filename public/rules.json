@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type":"modifyHeaders",
+            "responseHeaders":[
+                {
+                    "operation": "set",
+                    "header": "content-type",
+                    "value": "application/xhtml+xml"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|http*",
+            "resourceTypes": ["main_frame","sub_frame"],
+            "responseHeaders":[
+                {
+                    "header": "Content-Type",
+                    "values": ["application/vnd.hbbtv.xhtml+xml*"]
+                }
+            ]
+        }
+    }
+]
